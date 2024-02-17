@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 print("Enter initial velocity in m/s")
 v = float(input())
 g = 9.8 #Gravity acceleration in m/s2
-theta_d = np.arange(0,90,10) #List of the angle
+theta_d = np.arange(0,100,10) #List of the angle
 theta_r = np.radians(theta_d) #Convert degrees to radians
 t = np.arange(0,10,0.1) #Define the time interval setting as a continous parameter
 #Calculate trajectory for every angle
