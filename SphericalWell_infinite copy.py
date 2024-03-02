@@ -65,9 +65,12 @@ vs = eigenVectors[:,idx]
 #Energy Level
 E = - w/(2.0*h**2)
 
+print("Enter the level of the quantum state:")
+o = int(input())
+
 #Print Energy Values
 print("RESULTS:")
-for k in range(0,5):
+for k in range(0,o):
   E_exact=(float(k+1)*(np.pi))**2.0/(2.0*L*L)
   print("n=",k,", E(numeric)=%.4f" %E[k],', E(exact)='+'{:.4f}'.format(E_exact))
 
@@ -81,15 +84,13 @@ for k in range(0,len(w)):
 	psi[k] = psi[k]/integral**0.5
 
 #Plot Wave functions
-print("Plotting")
+for v in range(0,o):
+    plt.plot(x,psi[v],label=r'$\psi_v(x)$, n = ' + str(v))
+    plt.title('Spherical potential well Energy')
+    plt.legend()
+    plt.xlabel(r'$x$ (a.u.)')
+    plt.ylabel(r'$\psi(x)$')
 
-#v = int(input("\n Quantum Number (enter 0 for ground state):\n>"))
-for v in range(0,5):
-	plt.plot(x,psi[v],label=r'$\psi_v(x)$, k = ' + str(v))
-	plt.title(r'$n=$'+ str(v) + r', $E_n$=' + '{:.4f}'.format(E[v]))
-	plt.legend()
-	plt.xlabel(r'$x$ (a.u.)')
-	plt.ylabel(r'$\psi(x)$')
-	plt.show()
+plt.show()
 
 print("Bye")
